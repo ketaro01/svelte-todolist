@@ -3,32 +3,24 @@
   import _ from 'lodash';
   import { Button, Icon, Input, Label } from 'sveltestrap';
 
-  type TodoType = {
-    id: number;
-    title: string;
-    check: boolean;
-  }
   let hideComplete = false;
-  let modalOpen = false;
   let todoTitle = '';
   let todoItems: TodoType[] = [];
-  // let todoItems: TodoType[] = Array.from(Array(10)).map((_, index) => ({
-  //   id: index,
-  //   title: `title_${index}`,
-  //   check: false,
-  // }));
+
   const setTodo = (todo) => {
     let nextTodoItems = _.cloneDeep(todoItems);
     const idx = nextTodoItems.findIndex((item) => item.id === todo.id);
     nextTodoItems.splice(idx, 1, todo);
     todoItems = nextTodoItems;
   }
+
   const removeTodo = (todoId) => {
     let nextTodoItems = _.cloneDeep(todoItems);
     const idx = nextTodoItems.findIndex((item) => item.id === todoId);
     nextTodoItems.splice(idx, 1);
     todoItems = nextTodoItems;
   }
+
   const submit= () => {
     if (!todoTitle) return;
     const id = Math.max(-1, ...todoItems.map((item) => item.id));
@@ -94,14 +86,14 @@
       top: 20px;
       left: calc(50% - 50px);
     }
-    .hide-complete {
-      display: flex;
-      justify-content: right;
-      font-size: 12px;
-      h5 {
-        font-weight: 600;
-        margin: 5px 0;
-      }
+  }
+  .hide-complete {
+    display: flex;
+    justify-content: right;
+    font-size: 12px;
+    h5 {
+      font-weight: 600;
+      margin: 5px 0;
     }
   }
 </style>

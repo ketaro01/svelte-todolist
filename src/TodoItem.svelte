@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {Input, Card, Icon} from 'sveltestrap';
+  import { Card, Icon } from 'sveltestrap';
 
   export let todo;
   export let setTodo;

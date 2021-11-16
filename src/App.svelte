@@ -1,7 +1,6 @@
 <script lang="ts">
 	import TodoList from './TodoList.svelte';
 	import { Styles } from 'sveltestrap';
-
 </script>
 
 <main>
